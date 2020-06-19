@@ -4,8 +4,7 @@ describe "Student" do
 
   let(:josh) {Student.new("Josh", "9th")}
 
-  before(:each) do |example|
-    unless example.metadata[:skip_before]
+  before(:each) do 
 
       DB[:conn].execute("DROP TABLE IF EXISTS students")
       sql =  <<-SQL
@@ -16,7 +15,6 @@ describe "Student" do
       )
       SQL
       DB[:conn].execute(sql)
-    end
   end
 
   describe "attributes" do
